@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ "$1" == "-h" ]; then
+	echo "Usage: $0 FileName.pdf Title"
+	exit 1
+fi
+
+FILENAME=$1.tex
+TITLE=$2
+DATE=$(date)
+PDFVIEWER=okular
+
+touch $FILENAME
+
+echo "\documentclass{article}" > $FILENAME
+echo "\title{$TITLE}" >> $FILENAME
+echo "\date{$DATE}" >> $FILENAME
+
+echo "\begin{document}" >> $FILENAME
+echo "\maketitle" >> $FILENAME
+
+echo "\end{document}" >> $FILENAME
+
+pdflatex $FILENAME
+$PDFVIEWER $1'.pdf'
+
+
+exit 0
