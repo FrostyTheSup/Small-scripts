@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$1" == "-h" ]; then
+	echo "Usage: $0 MasterPdfName.pdf FirstPage LastPage OutputName"
+	exit 1
+fi
+
+MASTERPDFNAME=$1
+FIRSTPAGE=$2
+LASTPAGE=$3
+OUTPUTNAME=$4'.pdf'
+
+pdfseparate $MASTERPDFNAME -f $FIRSTPAGE -l $LASTPAGE uniquesamplename-%d.pdf
+pdfunite uniquesamplename-*.pdf $OUTPUTNAME
+rm uniquesamplename*.pdf
+exit 0
