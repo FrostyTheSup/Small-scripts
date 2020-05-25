@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PROGRAM=$1
+
+killall $PROGRAM
+$PROGRAM&
+disown
+exit 0
