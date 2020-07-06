@@ -1,23 +1,21 @@
 #! /bin/bash
 
-if [ "$1" == "-h" ]
-then
-	echo "Usage: $0 Season 1 ... Season n"
-	exit 1
-fi
-
-for FOLDER in "$@"
+for FOLDER in ./*
 do
-	FOLDERNUMBER="${FOLDER:7}"
-	if [ $FOLDERNUMBER -lt 10 ]
+	SEASONNUMBER="${FOLDER:9}"
+	if [ "$SEASONNUMBER" -lt "10" ]
 	then
-		NEWNAME="S0${FOLDERNUMBER}E"
-		echo "$NEWNAME"
+		NEWNAME="S0${SEASONNUMBER}E"
+#		echo "$NEWNAME"
 	else
-		NEWNAME="S${FOLDERNUMBER}E"
+		NEWNAME="S${SEASONNUMBER}E"
 	fi
-	
-	rename '' $NEWNAME "$FOLDER"/*
-	#rename ' ' ' - ' "$FOLDER"/*
+
+#	echo $(pwd)
+	cd "$FOLDER"
+#	echo $(pwd)
+	rename '' "$NEWNAME" *
+	rename ' ' ' - ' *
+	cd ..
 done
 exit 0
