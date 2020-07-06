@@ -8,13 +8,16 @@ fi
 
 for FOLDER in "$@"
 do
-	FOLDERNUMBER=${FOLDER:7}
+	FOLDERNUMBER="${FOLDER:7}"
 	if [ $FOLDERNUMBER -lt 10 ]
 	then
-		rename '' "S0${FOLDERNUMBER}E" $FOLDER/*
+		NEWNAME="S0${FOLDERNUMBER}E"
+		echo "$NEWNAME"
 	else
-		rename '' "S${FOLDERNUMBER}E" $FOLDER/*
+		NEWNAME="S${FOLDERNUMBER}E"
 	fi
-	rename ' ' ' - ' $FOLDER/*
+	
+	rename '' $NEWNAME "$FOLDER"/*
+	#rename ' ' ' - ' "$FOLDER"/*
 done
 exit 0
