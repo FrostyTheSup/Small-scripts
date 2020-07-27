@@ -6,8 +6,6 @@ FILENAME=$1
 
 for FACENAME in "${@:2}"
 do
-	echo loop
-
 	mkdir -p "$FACENAME"
 
 	ln -s "$(pwd)/$FILENAME" "$FACENAME"
