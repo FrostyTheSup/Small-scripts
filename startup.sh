@@ -4,3 +4,4 @@ xrandr --output DP2 --rotate left
 xrandr --output DP1 --pos 1080x300
 numlockx on
 easystroke
+xset -dpms
