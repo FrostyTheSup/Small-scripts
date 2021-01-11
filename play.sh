@@ -19,5 +19,5 @@ else
 fi
 
 touch "${PLAY}"*
-vlc "${PLAY}"* -f >/dev/null 2>&1&
+mpv "${PLAY}"* --fs >/dev/null 2>&1&
 exit 0
