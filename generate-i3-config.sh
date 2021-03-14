@@ -7,7 +7,7 @@ fi
 
 CONFIG=$(hostname)
 
-if [ $CONFIG != "lenny" ] && [ $CONFIG != "kilroy" ]; then
+if [ $CONFIG != "lenny" ] && [ $CONFIG != "kilroy" ] && [ $CONFIG != "clinton" ]; then
 	echo "This is not the machine you are looking for"
 	exit 2
 fi

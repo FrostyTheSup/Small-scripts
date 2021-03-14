@@ -1,7 +1,8 @@
 export DISPLAY=':0.0'
-xrandr --output DP1 --right-of DP2
-xrandr --output DP2 --rotate left
-xrandr --output DP1 --pos 1080x300
+xrandr --output DisplayPort-0 --right-of HDMI-A-0
+xrandr --output DisplayPort-0 --rotate left
+xrandr --output HDMI-A-0 --primary
 numlockx on
 easystroke
 xset -dpms
+ckb-next -b
